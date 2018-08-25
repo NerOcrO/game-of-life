@@ -1,0 +1,30 @@
+{
+  "name": "game-of-life",
+  "version": "1.0.0",
+  "description": "Game of life",
+  "scripts": {
+    "game_of_life_test": "mocha --require babel-core/register test/game-of-life.js",
+    "game_of_life": "node -r babel-register src/game-of-life.js"
+  },
+  "keywords": [],
+  "author": "NerOcrO",
+  "license": "MIT",
+  "engines": {
+    "node": ">=6.0.0",
+    "npm": ">=3.8.6"
+  },
+  "dependencies": {
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^17.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "mocha": "^5.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NerOcrO/game-of-life"
+  }
+}
