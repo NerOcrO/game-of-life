@@ -1,15 +1,14 @@
 'use strict'
 
-import { evolutionOfLife } from './lib'
+import { makingOfUniverse, evolutionOfLife } from './lib'
 
 const size = 25
-let start = []
 let counter = 1
-for (let x = 0; x < size; x++) {
-  for (let y = 0; y < size; y++) {
-    start.push({ x, y, alive: Math.round(Math.random()) ? true : false })
-  }
-}
+let start = makingOfUniverse(size)
+
+/**
+ * Show the game.
+ */
 const show = () => {
   const universe = start.map(evolutionOfLife)
   let line = ''
