@@ -39,9 +39,7 @@ export const isDeath = (neighborCells) => {
  *   or the cell don't change.
  */
 export const evolutionOfCell = (neighborCells, cell) => {
-  let hasChanged = false
-
-  hasChanged = cell.alive === true ? isDeath(neighborCells) : hasChanged = isBirth(neighborCells)
+  const hasChanged = cell.alive === true ? isDeath(neighborCells) : isBirth(neighborCells)
 
   return hasChanged ? !cell.alive : cell.alive
 }
