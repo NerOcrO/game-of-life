@@ -14,27 +14,28 @@
     "url": "https://github.com/NerOcrO/game-of-life"
   },
   "dependencies": {
-    "babel-preset-env": "^1.7.0",
-    "babel-register": "^6.26.0"
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/register": "^7.4.4"
   },
   "devDependencies": {
-    "eslint": "^4.19.1",
+    "@stryker-mutator/babel-transpiler": "^2.0.0",
+    "@stryker-mutator/core": "^2.0.0",
+    "@stryker-mutator/html-reporter": "^2.0.0",
+    "@stryker-mutator/javascript-mutator": "^2.0.0",
+    "@stryker-mutator/mocha-framework": "^2.0.0",
+    "@stryker-mutator/mocha-runner": "^2.0.0",
+    "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.0.0",
     "eslint-plugin-import": "^2.16.0",
-    "mocha": "^5.2.0",
-    "nyc": "^13.3.0",
-    "stryker": "^0.33.2",
-    "stryker-api": "^0.22.1",
-    "stryker-babel-transpiler": "^0.7.11",
-    "stryker-baseline-reporter": "^1.0.3",
-    "stryker-html-reporter": "^0.16.10",
-    "stryker-javascript-mutator": "^0.12.2",
-    "stryker-mocha-framework": "^0.13.3",
-    "stryker-mocha-runner": "^0.15.3"
+    "mocha": "^6.1.4",
+    "nyc": "^14.1.1",
+    "stryker-cli": "^1.0.0"
   },
   "scripts": {
-    "game_of_life_test": "./node_modules/.bin/nyc mocha --require babel-core/register test/game-of-life.js",
-    "game_of_life": "node -r babel-register src/game-of-life.js"
+    "game_of_life_test": "./node_modules/.bin/nyc mocha --require @babel/register test/game-of-life.js",
+    "game_of_life": "node -r @babel/register src/game-of-life.js",
+    "stryker": "stryker run"
   },
   "nyc": {
     "reporter": [
