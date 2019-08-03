@@ -14,21 +14,22 @@
     "url": "https://github.com/NerOcrO/game-of-life"
   },
   "dependencies": {
-    "@babel/core": "^7.4.5",
-    "@babel/preset-env": "^7.4.5",
-    "@babel/register": "^7.4.4"
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/register": "^7.5.5",
+    "eslint-config-airbnb-base": "^13.2.0"
   },
   "devDependencies": {
-    "@stryker-mutator/babel-transpiler": "^2.0.0",
-    "@stryker-mutator/core": "^2.0.0",
-    "@stryker-mutator/html-reporter": "^2.0.0",
-    "@stryker-mutator/javascript-mutator": "^2.0.0",
-    "@stryker-mutator/mocha-framework": "^2.0.0",
-    "@stryker-mutator/mocha-runner": "^2.0.0",
-    "eslint": "^5.16.0",
-    "eslint-config-airbnb": "^17.0.0",
-    "eslint-plugin-import": "^2.16.0",
-    "mocha": "^6.1.4",
+    "@stryker-mutator/babel-transpiler": "^2.0.2",
+    "@stryker-mutator/core": "^2.0.2",
+    "@stryker-mutator/html-reporter": "^2.0.2",
+    "@stryker-mutator/javascript-mutator": "^2.0.2",
+    "@stryker-mutator/mocha-framework": "^2.0.2",
+    "@stryker-mutator/mocha-runner": "^2.0.2",
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb": "^17.1.1",
+    "eslint-plugin-import": "^2.18.2",
+    "mocha": "^6.2.0",
     "nyc": "^14.1.1",
     "stryker-cli": "^1.0.0"
   },
