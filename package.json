@@ -14,34 +14,25 @@
     "url": "https://github.com/NerOcrO/game-of-life"
   },
   "dependencies": {
-    "@babel/core": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
-    "@babel/register": "^7.5.5",
-    "eslint-config-airbnb-base": "^13.2.0"
+    "@babel/register": "^7.5.5"
   },
   "devDependencies": {
     "@stryker-mutator/babel-transpiler": "^2.0.2",
     "@stryker-mutator/core": "^2.0.2",
     "@stryker-mutator/html-reporter": "^2.0.2",
     "@stryker-mutator/javascript-mutator": "^2.0.2",
-    "@stryker-mutator/mocha-framework": "^2.0.2",
-    "@stryker-mutator/mocha-runner": "^2.0.2",
+    "@stryker-mutator/jest-runner": "^2.0.2",
+    "@types/jest": "^24.0.17",
     "eslint": "^6.1.0",
-    "eslint-config-airbnb": "^17.1.1",
+    "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.18.2",
-    "mocha": "^6.2.0",
-    "nyc": "^14.1.1",
+    "jest": "^24.8.0",
     "stryker-cli": "^1.0.0"
   },
   "scripts": {
-    "game_of_life_test": "./node_modules/.bin/nyc mocha --require @babel/register test/game-of-life.js",
-    "game_of_life": "node -r @babel/register src/game-of-life.js",
-    "stryker": "stryker run"
-  },
-  "nyc": {
-    "reporter": [
-      "html",
-      "text"
-    ]
+    "start": "node -r @babel/register src/game-of-life.js",
+    "stryker": "stryker run",
+    "test": "jest --collectCoverage"
   }
 }

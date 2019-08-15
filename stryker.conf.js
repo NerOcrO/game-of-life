@@ -3,12 +3,12 @@ module.exports = (config) => {
     mutator: 'javascript',
     packageManager: 'npm',
     reporters: ['html', 'clear-text', 'progress'],
-    testRunner: 'mocha',
+    testRunner: 'jest',
     transpilers: ['babel'],
-    testFramework: 'mocha',
     coverageAnalysis: 'off',
     babel: {
       optionsFile: '.babelrc',
     },
+    mutate: ['src/*.js'],
   })
 }
