@@ -5,7 +5,7 @@
  * @return {number}
  *   Counter of alive.
  */
-export const alivesCounter = neighborCells => neighborCells.filter(cell => cell.alive).length
+export const alivesCounter = (neighborCells) => neighborCells.filter((cell) => cell.alive).length
 
 /**
  * @param {Array.<Object>} neighborCells
@@ -14,7 +14,7 @@ export const alivesCounter = neighborCells => neighborCells.filter(cell => cell.
  * @return {boolean}
  *   True if it's his birth.
  */
-export const isBirth = neighborCells => alivesCounter(neighborCells) === 3
+export const isBirth = (neighborCells) => alivesCounter(neighborCells) === 3
 
 /**
  * @param {Array.<Object>} neighborCells

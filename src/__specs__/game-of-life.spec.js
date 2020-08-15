@@ -1,10 +1,10 @@
 'use strict'
 
-import assert from 'assert'
-import * as gameOfLife from '../src/lib'
+import * as gameOfLife from '../lib'
 
 describe('La cellule', () => {
   it('naît si elle a trois voisines', () => {
+    // Given
     const state = [
       { x: 0, y: 0, alive: false },
       { x: 1, y: 0, alive: false },
@@ -15,10 +15,16 @@ describe('La cellule', () => {
       { x: 1, y: 2, alive: false },
       { x: 2, y: 2, alive: false },
     ]
-    assert.strictEqual(gameOfLife.isBirth(state), true)
+
+    // When
+    const birth = gameOfLife.isBirth(state)
+
+    // Then
+    expect(birth).toBe(true)
   })
 
   it('meurt si elle a plus de trois voisines', () => {
+    // Given
     const state = [
       { x: 0, y: 0, alive: false },
       { x: 1, y: 0, alive: false },
@@ -29,10 +35,16 @@ describe('La cellule', () => {
       { x: 1, y: 2, alive: false },
       { x: 2, y: 2, alive: false },
     ]
-    assert.strictEqual(gameOfLife.isDeath(state), true)
+
+    // When
+    const death = gameOfLife.isDeath(state)
+
+    // Then
+    expect(death).toBe(true)
   })
 
   it("meurt si elle n'a qu'une voisine", () => {
+    // Given
     const state = [
       { x: 0, y: 0, alive: false },
       { x: 1, y: 0, alive: false },
@@ -43,10 +55,16 @@ describe('La cellule', () => {
       { x: 1, y: 2, alive: false },
       { x: 2, y: 2, alive: false },
     ]
-    assert.strictEqual(gameOfLife.isDeath(state), true)
+
+    // When
+    const death = gameOfLife.isDeath(state)
+
+    // Then
+    expect(death).toBe(true)
   })
 
   it('évolue vers la naissance', () => {
+    // Given
     const state = [
       { x: 0, y: 0, alive: false },
       { x: 1, y: 0, alive: false },
@@ -59,10 +77,15 @@ describe('La cellule', () => {
     ]
     const cell = { x: 1, y: 1, alive: false }
 
-    assert.strictEqual(gameOfLife.evolutionOfCell(state, cell), true)
+    // When
+    const newCell = gameOfLife.evolutionOfCell(state, cell)
+
+    // Then
+    expect(newCell).toBe(true)
   })
 
   it('évolue vers la mort', () => {
+    // Given
     const state = [
       { x: 0, y: 0, alive: false },
       { x: 1, y: 0, alive: false },
@@ -75,10 +98,15 @@ describe('La cellule', () => {
     ]
     const cell = { x: 1, y: 1, alive: true }
 
-    assert.strictEqual(gameOfLife.evolutionOfCell(state, cell), false)
+    // When
+    const newCell = gameOfLife.evolutionOfCell(state, cell)
+
+    // Then
+    expect(newCell).toBe(false)
   })
 
   it("n'évolue pas", () => {
+    // Given
     const state = [
       { x: 0, y: 0, alive: false },
       { x: 1, y: 0, alive: false },
@@ -91,10 +119,15 @@ describe('La cellule', () => {
     ]
     const cell = { x: 1, y: 1, alive: false }
 
-    assert.strictEqual(gameOfLife.evolutionOfCell(state, cell), false)
+    // When
+    const newCell = gameOfLife.evolutionOfCell(state, cell)
+
+    // Then
+    expect(newCell).toBe(false)
   })
 
   it('analysée est supprimée pour pouvoir compter ces voisins', () => {
+    // Given
     const state = [
       { x: 0, y: 0, alive: false },
       { x: 1, y: 0, alive: false },
@@ -118,12 +151,17 @@ describe('La cellule', () => {
       { x: 2, y: 2, alive: false },
     ]
 
-    assert.strictEqual(JSON.stringify(state.filter(gameOfLife.removeCell, cell)), JSON.stringify(stateWithoutCell))
+    // When
+    const string = JSON.stringify(state.filter(gameOfLife.removeCell, cell))
+
+    // Then
+    expect(string).toStrictEqual(JSON.stringify(stateWithoutCell))
   })
 })
 
 describe('Cellules voisines :', () => {
   it('nombre vivantes', () => {
+    // Given
     const state = [
       { x: 0, y: 0, alive: false },
       { x: 1, y: 0, alive: false },
@@ -134,7 +172,12 @@ describe('Cellules voisines :', () => {
       { x: 1, y: 2, alive: false },
       { x: 2, y: 2, alive: false },
     ]
-    assert.strictEqual(gameOfLife.alivesCounter(state), 3)
+
+    // When
+    const counter = gameOfLife.alivesCounter(state)
+
+    // Then
+    expect(counter).toBe(3)
   })
 
   it('leurs sélection dans un univers', () => {
@@ -157,7 +200,11 @@ describe('Cellules voisines :', () => {
       { x: 1, y: 1, alive: false },
     ]
 
-    assert.strictEqual(JSON.stringify(universe.filter(gameOfLife.getNeighborCells, cell)), JSON.stringify(neighborsAndCell))
+    // When
+    const string = JSON.stringify(universe.filter(gameOfLife.getNeighborCells, cell))
+
+    // Then
+    expect(string).toStrictEqual(JSON.stringify(neighborsAndCell))
   })
 })
 
@@ -198,6 +245,10 @@ describe('Au jeu de la vie,', () => {
       { x: 4, y: 2, alive: false },
     ]
 
-    assert.strictEqual(JSON.stringify(universe.map(gameOfLife.evolutionOfLife)), JSON.stringify(betterUniverse))
+    // When
+    const string = JSON.stringify(universe.map(gameOfLife.evolutionOfLife))
+
+    // Then
+    expect(string).toStrictEqual(JSON.stringify(betterUniverse))
   })
 })
